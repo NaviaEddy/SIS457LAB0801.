@@ -29,6 +29,7 @@ public:
 	virtual void BuildBricks3() = 0;
 	virtual void BuildBricks4() = 0;
 	virtual void BuildBricks5() = 0;
+	virtual void BuildBricks6() = 0;
 	virtual class AFinalBricks* GetFinalBricks() = 0;
 
 };

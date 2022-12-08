@@ -28,6 +28,7 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
 		class ANivelFinal* NivelFinal;
 
+
 protected:
 
 	// Called when the game starts or when spawned

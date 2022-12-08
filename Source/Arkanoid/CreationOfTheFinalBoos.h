@@ -24,6 +24,9 @@ private:
 	UPROPERTY(VisibleAnywhere)
 		class ABrick* Brick;
 
+	UPROPERTY(VisibleAnywhere)
+		class ABrickPrueba* BrickPrueba;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -45,6 +48,8 @@ public:
 	virtual void BuildBricks4() override;
 
 	virtual void BuildBricks5() override;
+
+	virtual void BuildBricks6() override;
 
 	virtual class AFinalBricks* GetFinalBricks() override;
 };

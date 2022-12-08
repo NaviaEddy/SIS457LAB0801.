@@ -29,4 +29,5 @@ public:
 	virtual void SetBricks3(FString Bricks3) = 0;
 	virtual void SetBricks4(FString Bricks4) = 0;
 	virtual void SetBricks5(FString Bricks5) = 0;
+	virtual void SetBricks6(FString Bricks6) = 0;
 };

@@ -65,6 +65,7 @@ void ANivelFinal::ConstructFinalBricks()
 		BossInterfaces->BuildBricks3();
 		BossInterfaces->BuildBricks4();
 		BossInterfaces->BuildBricks5();
+		BossInterfaces->BuildBricks6();
 	}
 
 

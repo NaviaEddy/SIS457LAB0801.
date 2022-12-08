@@ -32,6 +32,9 @@ private:
 	//Nombre del brick5;
 	FString Bricks5;
 
+	//Nombre del brick6;
+	FString Bricks6;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -54,6 +57,9 @@ public:
 
 	//Establece el nombre del brick5
 	void SetBricks5(FString myBricks5);
+
+	//Establece el nombre del brick5
+	void SetBricks6(FString myBricks6);
 
 	//Registra todos los componentes del jefe
 	void BossCharacteristics();

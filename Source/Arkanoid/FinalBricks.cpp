@@ -55,6 +55,11 @@ void AFinalBricks::SetBricks5(FString myBricks5)
 	Bricks5 = myBricks5;
 }
 
+void AFinalBricks::SetBricks6(FString myBricks6)
+{
+	Bricks6 = myBricks6;
+}
+
 void AFinalBricks::BossCharacteristics()
 {
 	//Registra los nombres de cada brick
@@ -67,5 +72,8 @@ void AFinalBricks::BossCharacteristics()
 	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("%s"), *Bricks4));
 
 	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("%s"), *Bricks5));
+
+	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow, FString::Printf(TEXT("%s"), *Bricks6));
 }
+
 

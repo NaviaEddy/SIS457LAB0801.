@@ -19,6 +19,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		UStaticMeshComponent* SM_Brick; //Ladrillo
 
@@ -28,13 +30,13 @@ protected:
 	float SpeedModifierOnBounce = 1.01f;
 
 	UFUNCTION() //Entra en la caja
-		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
-
-	void DestroyBrick();
+		virtual void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
 
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void DestroyBrick();
 
 };

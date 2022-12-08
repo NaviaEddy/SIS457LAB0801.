@@ -4,6 +4,7 @@
 #include "Brick.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
+#include "Components/SceneComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Ball.h"
 
@@ -14,17 +15,17 @@ ABrick::ABrick()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> BrickMesh(TEXT("StaticMesh'/Game/Assets/Meshes/SM_Brick.SM_Brick'"));
-	
-	Collision = CreateDefaultSubobject<UBoxComponent>(TEXT("Box Collision"));
-	Collision->SetBoxExtent(FVector(25.0f, 11.0f, 11.0f));
-	Collision->SetCollisionProfileName("Trigger");
-	RootComponent = Collision;
 
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> BrickMesh(TEXT("StaticMesh'/Game/Assets/Meshes/SM_Brick.SM_Brick'"));
 	SM_Brick = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Brick"));
 	SM_Brick->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	SM_Brick->SetStaticMesh(BrickMesh.Object);
-	SM_Brick->SetupAttachment(RootComponent);
+	RootComponent = SM_Brick;
+
+	Collision = CreateDefaultSubobject<UBoxComponent>(TEXT("Box Collision"));
+	Collision->SetBoxExtent(FVector(25.0f, 11.0f, 11.0f));
+	Collision->SetCollisionProfileName("Trigger");
+	Collision->SetupAttachment(RootComponent);
 
 
 }
@@ -36,10 +37,12 @@ void ABrick::BeginPlay()
 	
 	Collision->OnComponentBeginOverlap.AddDynamic(this, &ABrick::OnOverlapBegin);
 	//Collision->OnComponentHit.AddDynamic(this, &ABrick::OnHit);
+	
 }
 
 void ABrick::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult)
 {
+
 	if (OtherActor->ActorHasTag("Ball")) {
 
 		ABall* MyBall = Cast<ABall>(OtherActor);

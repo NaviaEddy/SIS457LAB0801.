@@ -5,6 +5,8 @@
 #include "CreationOfTheFinalBoos.h"
 #include "NivelFinal.h"
 #include "FinalBricks.h"
+#include "FiringBrick.h"
+#include "ProjectileEnemy.h"
 
 AArkanoidGameModeBase::AArkanoidGameModeBase()
 {
